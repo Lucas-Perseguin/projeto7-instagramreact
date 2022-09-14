@@ -1,4 +1,4 @@
-const post = [
+const posts = [
     { usuarioImg: '../assets/img/meowed.svg', nome: 'meowed', conteudo: <img src='../assets/img/gato-telefone.svg' /> },
     { usuarioImg: '../assets/img/barked.svg', nome: 'barked', conteudo: <img src='../assets/img/dog.svg' />},
     { usuarioImg: '../assets/img/filomoderna.svg', nome: 'filosofia_moderna',
@@ -11,13 +11,13 @@ const post = [
 export default function Posts() {
     return (
         <div class="posts">
-            {post.map((object, index) => {
+            {posts.map((post, index) => {
                 return(
                     <div class="post" key={index}>
                         <div class="topo">
                             <div class="usuario">
-                                <img src={object.usuarioImg} />
-                                {object.nome}
+                                <img src={post.usuarioImg} />
+                                {post.nome}
                             </div>
                             <div class="acoes">
                                 <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -25,7 +25,7 @@ export default function Posts() {
                         </div>
 
                         <div class="conteudo">
-                            {object.conteudo}
+                            {post.conteudo}
                         </div>
 
                         <div class="fundo">
@@ -48,7 +48,7 @@ export default function Posts() {
                             </div>
                         </div>
                     </div>
-                )
+                );
             })}
         </div>
     );
