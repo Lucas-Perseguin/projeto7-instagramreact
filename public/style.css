@@ -223,6 +223,7 @@ body {
 .sidebar > .usuario {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .sidebar > .usuario img {
@@ -242,6 +243,61 @@ body {
 .sidebar > .usuario .texto strong {
   font-weight: 500;
   color: #262626;
+}
+
+#edit-user{
+  position: absolute;
+  top: 12px;
+  right: 0;
+  width: 25px;
+  height: 25px;
+}
+
+#edit-user:hover{
+  cursor: pointer;
+}
+
+.user-edit{
+  height: 400px;
+  width: 600px;
+  background-color: #FFF;
+  box-shadow: 2px 2px 6px solid #000;
+  position: fixed;
+  top: calc(50% - 200px);
+  left: calc(50% - 300px);
+}
+
+.user-edit > ion-icon{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.user-edit > ion-icon:hover{
+  cursor: pointer;
+}
+
+.user-edit > h1{
+  font-size: 20px;
+  margin-top: -100px;
+  margin-bottom: 100px;
+}
+
+.user-edit input{
+  width: 400px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.blur{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 0.666);
+  top: 0;
+  left: 0;
 }
 
 .sidebar .sugestoes .titulo {
