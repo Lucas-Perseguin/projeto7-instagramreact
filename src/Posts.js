@@ -1,4 +1,4 @@
-import Icon from "./Icon.js"
+import React from "react"
 
 const posts = [
     { usuarioImg: '/assets/img/meowed.svg', nome: 'meowed', conteudo: <img src='/assets/img/gato-telefone.svg' /> },
@@ -11,8 +11,12 @@ const posts = [
 ];
 
 export default function Posts() {
+    const [isLiked, setLiked] = React.useState(false)
+    const [isSaved, setSaved] = React.useState(false)
+
     return (
         <div className="posts">
+            <script></script>
             {posts.map((post, index) => {
                 return(
                     <div className="post" key={index}>
@@ -33,25 +37,39 @@ export default function Posts() {
                         <div className="fundo">
                             <div className="acoes">
                                 <div>
-                                    <Icon name="heart-outline" icon="heart" color="red" />
+                                    <ion-icon
+                                    onClick={() => {
+                                        const prevState = isLiked
+                                        setLiked(!prevState)
+                                    }}
+                                    name={isLiked ? "heart" : "heart-outline"}
+                                    style={isLiked ? {color: "red"} : {color: "black"}}
+                                    ></ion-icon>
                                     <ion-icon name="chatbubble-outline"></ion-icon>
                                     <ion-icon name="paper-plane-outline"></ion-icon>
                                 </div>
                                 <div>
-                                    <Icon name="bookmark-outline" icon="bookmark" color="black" />
+                                    <ion-icon
+                                    onClick={() => {
+                                        const prevState = isSaved
+                                        setSaved(!prevState)
+                                    }}
+                                    name={isSaved ? "bookmark" : "bookmark-outline"}
+                                    style={{color: "black"}}
+                                    ></ion-icon>
                                 </div>
                             </div>
 
                             <div className="curtidas">
                                 <img src="/assets/img/respondeai.svg" />
                                 <div className="texto">
-                                    Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                                    Curtido por <strong>respondeai</strong> e <strong>outras {isLiked ? "101.524" : "101.523"} pessoas</strong>
                                 </div>
                             </div>
                         </div>
                     </div>
-                );
+                )
             })}
         </div>
-    );
+    )
 }
