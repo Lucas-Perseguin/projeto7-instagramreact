@@ -11,13 +11,17 @@ export default function Usuario() {
         const novaImg = document.getElementById('img-usuario').value
         if (novoNome){
             setNome(novoNome)
+            document.getElementById('nome-usuario').value = ""
         }
         if (novoUser){
             setUser(novoUser)
+            novoUser = document.getElementById('@usuario').value = ""
         }
         if (novaImg){
             setImg(novaImg)
+            novaImg = document.getElementById('img-usuario').value = ""
         }
+        setEdit(false)
     }
     return (
         <div className="usuario">
@@ -29,12 +33,9 @@ export default function Usuario() {
             <ion-icon name="create-outline" id="edit-user"
             onClick={() => {setEdit(true)}}></ion-icon>
             <div className="user-edit"
-            style={isEdited ? {display: "flex", gap: "10px", flexDirection: "column", alignItems: "center", justifyContent: "center", zIndex: "4"} : 
+            style={isEdited ? {display: "flex", gap: "40px", flexDirection: "column", alignItems: "center", justifyContent: "center", zIndex: "4"} : 
             {display: "none"}}>
-                <ion-icon name="close-circle-outline" onClick={() => {
-                    setEdit(false)
-                    editUser();
-                    }}></ion-icon>
+                <ion-icon name="close-circle-outline" onClick={() => {editUser();}}></ion-icon>
                 <h1>Edição de usuário</h1>
                 <input type="text" placeholder="Nome de usuário" id="nome-usuario"></input>
                 <input type="text" placeholder="@ do usuário" id="@usuario"></input>
